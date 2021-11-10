@@ -4,7 +4,7 @@ const TopNavigation = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <div class="bg-red-400 sticky">
+        <div class="bg-indigo-400 sticky">
             <div class="px-4 py-3 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                 <div class="relative flex items-center justify-between">
                     <a
@@ -46,7 +46,7 @@ const TopNavigation = () => {
                         <li>
                             <a
                                 href="/"
-                                class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-500 rounded-full shadow-inner bg-red-500 hover:bg-red-700"
+                                class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-500 rounded-full shadow-inner bg-indigo-500 hover:bg-indigo-700"
                                 aria-label="Sign up"
                                 title="Sign up"
                             >
@@ -64,7 +64,7 @@ const TopNavigation = () => {
                             <i class="fas fa-bars text-white text-2xl"></i>
                         </button>
                         {isMenuOpen && (
-                            <div class="absolute top-0 left-0 w-full border-2 border-red-500">
+                            <div class="absolute top-0 left-0 w-full border-2 border-indigo-500">
                                 <div class="p-5 bg-white border rounded shadow-sm">
                                     <div class="flex items-center justify-between mb-4">
                                         <div>
@@ -112,7 +112,7 @@ const TopNavigation = () => {
                                                     href="/"
                                                     aria-label="Our product"
                                                     title="Our product"
-                                                    class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-400"
+                                                    class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-indigo-400"
                                                 >
                                                     Product
                                                 </a>
@@ -120,7 +120,7 @@ const TopNavigation = () => {
                                             <li>
                                                 <a
                                                     href="/"
-                                                    class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-400 hover:bg-red-700 focus:shadow-outline focus:outline-none"
+                                                    class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-indigo-400 hover:bg-indigo-700 focus:shadow-outline focus:outline-none"
                                                     aria-label="Sign up"
                                                     title="Sign up"
                                                 >
