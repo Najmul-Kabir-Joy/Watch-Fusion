@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../../../Shared/Footer/Footer';
 import TopNavigation from '../../../Shared/Navigation/TopNavigation/TopNavigation';
 import Featured from '../Featured/Featured';
 import Reviews from '../Reviews/Reviews';
@@ -18,6 +19,7 @@ const Home = () => {
                 <WhyUs />
                 <SecondBanner />
                 <Reviews />
+                <Footer />
             </div>
         </>
     );

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const TopNavigation = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,14 +35,14 @@ const TopNavigation = () => {
                     </a>
                     <ul class="flex items-center hidden space-x-8 lg:flex">
                         <li>
-                            <a
-                                href="/"
+                            <Link
+                                to="/dashboard"
                                 aria-label="Our product"
                                 title="Our product"
                                 class="font-medium tracking-wide text-white transition duration-500 hover:opacity-60"
                             >
-                                Product
-                            </a>
+                                Dashboard
+                            </Link>
                         </li>
                         <li>
                             <a

@@ -47,7 +47,7 @@ const Reviews = () => {
                 <h1 className='text-5xl border-b-4 transition duration-1000 hover:border-indigo-400 inline'>TESTIMONIALS</h1>
             </div>
             <Slider {...settings}>
-                <div className='lg:px-10 px-0'>
+                <div className='lg:px-10 px-0 shadow-2xl py-2'>
                     <ReviewGenerator />
                 </div>
                 <div className='lg:px-10 px-0'>
