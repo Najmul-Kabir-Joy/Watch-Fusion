@@ -42,7 +42,7 @@ const Reviews = () => {
     };
 
     return (
-        <div className='container mx-auto'>
+        <div className='container mx-auto mb-8'>
             <div className='my-5 pb-5 text-center'>
                 <h1 className='text-5xl border-b-4 transition duration-1000 hover:border-indigo-400 inline'>TESTIMONIALS</h1>
             </div>

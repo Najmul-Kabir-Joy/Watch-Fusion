@@ -1,11 +1,18 @@
+import axios from 'axios';
 import React from 'react';
 import { useForm } from "react-hook-form";
 
 const AddNewProduct = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        console.log(data)
-        reset();
+        axios.post('http://localhost:5000/products', data)
+            .then(res => {
+                if (res.data.insertedId) {
+                    alert('added');
+                    reset();
+
+                }
+            })
     };
     return (
         <div className='container mx-auto'>
@@ -54,7 +61,7 @@ const AddNewProduct = () => {
                                     </div>
                                 </div>
                                 <div className="p-2 w-full">
-                                    <button className="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">ADD TO SHOP</button>
+                                    <button type='submit' className="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">ADD TO SHOP</button>
                                 </div>
                             </div>
                         </form>

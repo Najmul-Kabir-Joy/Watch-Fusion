@@ -6,6 +6,9 @@ import AuthProvider from './Pages/Context/AuthProvider/AuthProvider';
 import Login from './Pages/Login/Login';
 import SignUp from './Pages/SignUp/SignUp';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
+import BuyNow from './Pages/BuyNow/BuyNow';
+import UpdateProduct from './Pages/UpdateProduct/UpdateProduct';
+import Explore from './Pages/Explore/Explore';
 
 function App() {
   return (
@@ -22,8 +25,17 @@ function App() {
             <Route path='/signup'>
               <SignUp />
             </Route>
+            <Route path='/explore'>
+              <Explore />
+            </Route>
+            <Route path='/manageproducts/update/:id'>
+              <UpdateProduct />
+            </Route>
             <PrivateRoute path='/dashboard'>
               <Dashboard />
+            </PrivateRoute>
+            <PrivateRoute path='/buynow/:id'>
+              <BuyNow />
             </PrivateRoute>
           </Switch>
         </BrowserRouter>

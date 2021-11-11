@@ -3,12 +3,14 @@ import { Route, Switch, useRouteMatch } from 'react-router';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 import AddNewProduct from '../../../Pages/AddNewProduct/AddNewProduct';
+import AllOrders from '../../../Pages/AllOrders/AllOrders';
 import BecomeMerchant from '../../../Pages/BecomeMerchant/BecomeMerchant';
 import Dashboard from '../../../Pages/Dashboard/Dashboard/Dashboard';
 import GiveReview from '../../../Pages/GiveReview/GiveReview';
 import ManageProducts from '../../../Pages/ManageProducts/ManageProducts';
 import MyOrders from '../../../Pages/MyOrders/MyOrders';
 import Pay from '../../../Pages/Pay/Pay';
+import UpdateProduct from '../../../Pages/UpdateProduct/UpdateProduct';
 
 const DashboardSideBar = () => {
     const { logOut } = useAuth();
@@ -100,6 +102,10 @@ const DashboardSideBar = () => {
 
                             <span class="mx-4 font-medium">MY ORDERS</span>
                         </Link>
+                        <Link to={`${url}/allorders`} class="flex items-center px-4 py-2 mt-5 text-white transition-colors duration-200 transform dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
+                            <i class="fas fa-file text-lg"></i>
+                            <span class="mx-4 font-medium">ALL ORDERS</span>
+                        </Link>
                         <Link to={`${url}/userfeedbackform`} class="flex items-center px-4 py-2 mt-5 text-white transition-colors duration-200 transform dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
                             <i class="fas fa-signature text-lg"></i>
 
@@ -120,7 +126,6 @@ const DashboardSideBar = () => {
 
                             <span class="mx-4 font-medium">Manage Products</span>
                         </Link>
-
                         <p onClick={logOut} class="flex items-center px-4 py-2 mt-5 text-white cursor-pointer transition-colors duration-200 transform dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
                             <i class="fas fa-sign-out-alt text-lg"></i>
 
@@ -137,6 +142,9 @@ const DashboardSideBar = () => {
                     <Route path={`${path}/myorders`}>
                         <MyOrders />
                     </Route>
+                    <Route path={`${path}/allorders`}>
+                        <AllOrders />
+                    </Route>
                     <Route path={`${path}/pay`}>
                         <Pay />
                     </Route>
@@ -152,10 +160,11 @@ const DashboardSideBar = () => {
                     <Route path={`${path}/manageproducts`}>
                         <ManageProducts />
                     </Route>
+
                 </Switch>
             </div>
 
-        </div>
+        </div >
 
 
     );

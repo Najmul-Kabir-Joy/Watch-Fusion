@@ -7,7 +7,7 @@ const TopNavigation = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <div class="bg-indigo-400 sticky">
+        <div class="bg-indigo-400">
             <div class="px-4 py-3 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                 <div class="relative flex items-center justify-between">
                     <Link
@@ -36,6 +36,16 @@ const TopNavigation = () => {
                         </span>
                     </Link>
                     <ul class="flex items-center hidden space-x-8 lg:flex">
+                        <li>
+                            <Link
+                                to="/explore"
+                                aria-label="explore"
+                                title="explore"
+                                class="font-medium tracking-wide text-white transition duration-500 hover:opacity-60"
+                            >
+                                Explore
+                            </Link>
+                        </li>
                         {
                             user.email ?
                                 <>
@@ -49,6 +59,7 @@ const TopNavigation = () => {
                                             Dashboard
                                         </Link>
                                     </li>
+
                                     <li>
                                         <button
                                             onClick={logOut}
@@ -61,6 +72,7 @@ const TopNavigation = () => {
                                     </li>
                                 </>
                                 :
+
                                 <li>
                                     <Link
                                         to="/login"
@@ -73,7 +85,7 @@ const TopNavigation = () => {
                                 </li>
                         }
                     </ul>
-                    <div class="lg:hidden z-10">
+                    <div class="lg:hidden z-50">
                         <button
                             aria-label="Open Menu"
                             title="Open Menu"
