@@ -1,15 +1,17 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import useAuth from "../../../Hooks/useAuth";
 
 const TopNavigation = () => {
+    const { user, logOut } = useAuth();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
         <div class="bg-indigo-400 sticky">
             <div class="px-4 py-3 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                 <div class="relative flex items-center justify-between">
-                    <a
-                        href="/"
+                    <Link
+                        to="/"
                         aria-label="Company"
                         title="Company"
                         class="inline-flex items-center"
@@ -32,28 +34,44 @@ const TopNavigation = () => {
                         <span class="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
                             WATCH FUSION
                         </span>
-                    </a>
+                    </Link>
                     <ul class="flex items-center hidden space-x-8 lg:flex">
-                        <li>
-                            <Link
-                                to="/dashboard"
-                                aria-label="Our product"
-                                title="Our product"
-                                class="font-medium tracking-wide text-white transition duration-500 hover:opacity-60"
-                            >
-                                Dashboard
-                            </Link>
-                        </li>
-                        <li>
-                            <a
-                                href="/"
-                                class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-500 rounded-full shadow-inner bg-indigo-500 hover:bg-indigo-700"
-                                aria-label="Sign up"
-                                title="Sign up"
-                            >
-                                Sign up
-                            </a>
-                        </li>
+                        {
+                            user.email ?
+                                <>
+                                    <li>
+                                        <Link
+                                            to="/dashboard"
+                                            aria-label="Our product"
+                                            title="Our product"
+                                            class="font-medium tracking-wide text-white transition duration-500 hover:opacity-60"
+                                        >
+                                            Dashboard
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <button
+                                            onClick={logOut}
+                                            class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-500 rounded-full shadow-inner bg-indigo-500 hover:bg-indigo-700"
+                                            aria-label="Log out"
+                                            title="Logout"
+                                        >
+                                            Log out
+                                        </button>
+                                    </li>
+                                </>
+                                :
+                                <li>
+                                    <Link
+                                        to="/login"
+                                        class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-500 rounded-full shadow-inner bg-indigo-500 hover:bg-indigo-700"
+                                        aria-label="Log in"
+                                        title="Login"
+                                    >
+                                        Login
+                                    </Link>
+                                </li>
+                        }
                     </ul>
                     <div class="lg:hidden z-10">
                         <button
@@ -119,14 +137,14 @@ const TopNavigation = () => {
                                                 </a>
                                             </li>
                                             <li>
-                                                <a
-                                                    href="/"
+                                                <Link
+                                                    to="/login"
                                                     class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-indigo-400 hover:bg-indigo-700 focus:shadow-outline focus:outline-none"
-                                                    aria-label="Sign up"
-                                                    title="Sign up"
+                                                    aria-label="log in"
+                                                    title="Login"
                                                 >
-                                                    Sign up
-                                                </a>
+                                                    Login
+                                                </Link>
                                             </li>
                                         </ul>
                                     </nav>

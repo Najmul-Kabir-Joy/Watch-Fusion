@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { Route, Switch, useRouteMatch } from 'react-router';
 import { Link } from 'react-router-dom';
+import useAuth from '../../../Hooks/useAuth';
+import AddNewProduct from '../../../Pages/AddNewProduct/AddNewProduct';
+import BecomeMerchant from '../../../Pages/BecomeMerchant/BecomeMerchant';
 import Dashboard from '../../../Pages/Dashboard/Dashboard/Dashboard';
 import GiveReview from '../../../Pages/GiveReview/GiveReview';
+import ManageProducts from '../../../Pages/ManageProducts/ManageProducts';
 import MyOrders from '../../../Pages/MyOrders/MyOrders';
 import Pay from '../../../Pages/Pay/Pay';
 
 const DashboardSideBar = () => {
+    const { logOut } = useAuth();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     let { path, url } = useRouteMatch();
 
@@ -75,7 +80,7 @@ const DashboardSideBar = () => {
             </div> */}
 
             <div class="flex flex-col w-1/6 h-screen py-8 bg-indigo-400 border-r lg:block hidden">
-                <h2 class="text-3xl font-semibold text-center text-white dark:text-white">WATCH FUSION</h2>
+                <Link to='/' class="text-3xl block font-semibold text-center text-white dark:text-white">WATCH FUSION</Link>
 
                 <div class="flex flex-col items-center mt-6 -mx-2">
                     <img class="object-cover w-24 h-24 mx-2 rounded-full" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="avatar" />
@@ -100,8 +105,23 @@ const DashboardSideBar = () => {
 
                             <span class="mx-4 font-medium">GIVE REVIEW</span>
                         </Link>
+                        <Link to={`${url}/becomeshopowner`} class="flex items-center px-4 py-2 mt-5 text-white transition-colors duration-200 transform dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
+                            <i class="fas fa-signature text-lg"></i>
 
-                        <p class="flex items-center px-4 py-2 mt-5 text-white cursor-pointer transition-colors duration-200 transform dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
+                            <span class="mx-4 font-medium">Become Merchant</span>
+                        </Link>
+                        <Link to={`${url}/addproducts`} class="flex items-center px-4 py-2 mt-5 text-white transition-colors duration-200 transform dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
+                            <i class="fas fa-signature text-lg"></i>
+
+                            <span class="mx-4 font-medium">Add Products</span>
+                        </Link>
+                        <Link to={`${url}/manageproducts`} class="flex items-center px-4 py-2 mt-5 text-white transition-colors duration-200 transform dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
+                            <i class="fas fa-signature text-lg"></i>
+
+                            <span class="mx-4 font-medium">Manage Products</span>
+                        </Link>
+
+                        <p onClick={logOut} class="flex items-center px-4 py-2 mt-5 text-white cursor-pointer transition-colors duration-200 transform dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
                             <i class="fas fa-sign-out-alt text-lg"></i>
 
                             <span class="mx-4 font-medium">LOGOUT</span>
@@ -122,6 +142,15 @@ const DashboardSideBar = () => {
                     </Route>
                     <Route path={`${path}/userfeedbackform`}>
                         <GiveReview />
+                    </Route>
+                    <Route path={`${path}/becomeshopowner`}>
+                        <BecomeMerchant />
+                    </Route>
+                    <Route path={`${path}/addproducts`}>
+                        <AddNewProduct />
+                    </Route>
+                    <Route path={`${path}/manageproducts`}>
+                        <ManageProducts />
                     </Route>
                 </Switch>
             </div>

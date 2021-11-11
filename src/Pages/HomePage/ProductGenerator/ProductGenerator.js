@@ -20,7 +20,7 @@ const ProductGenerator = () => {
                             BUY NOW
                         </Link>
                     </div>
-                    <div class=" absolute transition duration-1000 top-5 right-2 p-2 px-5 font-semibold bg-indigo-600 text-white uppercase group-hover:bg-white group-hover:text-indigo-500">25% Off</div>
+                    <div class=" absolute rounded-full transition duration-1000 top-2 right-2 p-2 px-5 font-semibold bg-indigo-600 text-white uppercase group-hover:bg-white group-hover:text-indigo-500">25% Off</div>
                 </section>
             </section>
             <section className='flex justify-center'>
@@ -38,7 +38,7 @@ const ProductGenerator = () => {
                             BUY NOW
                         </Link>
                     </div>
-                    <div class=" absolute transition duration-1000 top-5 right-2 p-2 px-5 font-semibold bg-indigo-600 text-white uppercase group-hover:bg-white group-hover:text-indigo-500">25% Off</div>
+                    <div class=" absolute rounded-full transition duration-1000 top-2 right-2 p-2 px-5 font-semibold bg-indigo-600 text-white uppercase group-hover:bg-white group-hover:text-indigo-500">25% Off</div>
                 </section>
             </section>
             <section className='flex justify-center'>
@@ -56,7 +56,7 @@ const ProductGenerator = () => {
                             BUY NOW
                         </Link>
                     </div>
-                    <div class=" absolute transition duration-1000 top-5 right-2 p-2 px-5 font-semibold bg-indigo-600 text-white uppercase group-hover:bg-white group-hover:text-indigo-500">25% Off</div>
+                    <div class=" absolute rounded-full transition duration-1000 top-2 right-2 p-2 px-5 font-semibold bg-indigo-600 text-white uppercase group-hover:bg-white group-hover:text-indigo-500">25% Off</div>
                 </section>
             </section>
 

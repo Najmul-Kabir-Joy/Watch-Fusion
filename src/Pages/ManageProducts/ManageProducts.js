@@ -1,7 +1,7 @@
 import React from 'react';
-import MyOrdersRow from './MyOrdersRow/MyOrdersRow';
-const MyOrders = () => {
+import ManageProductsRow from './ManageProductsRow/ManageProductsRow';
 
+const ManageProducts = () => {
     return (
         <div className='min-w-full' >
             <h2 className='text-center text-3xl py-10'>MY ORDERS PAGE</h2>
@@ -11,18 +11,19 @@ const MyOrders = () => {
                         <table className="w-full table-auto">
                             <thead>
                                 <tr className="text-md font-semibold bg-indigo-300 text-center tracking-wide text-gray-900 uppercase border-b border-indigo-600">
-                                    <th className="px-4 py-3 border">DATE</th>
-                                    <th className="px-4 py-3 border">PRODUCT</th>
-                                    <th className="px-4 py-3 border">BILL</th>
-                                    <th className="px-4 py-3 border">SHOP NAME</th>
-                                    <th className="px-4 py-3 border">ORDER STATUS</th>
-                                    <th className="px-4 py-3 border">SHIPPING STATUS</th>
+                                    <th className="px-4 py-3 border">SHOPNAME</th>
+                                    <th className="px-4 py-3 border">PRODUCT NAME</th>
+                                    <th className="px-4 py-3 border">BRAND NAME</th>
+                                    <th className="px-4 py-3 border">PRICE</th>
+                                    <th className="px-4 py-3 border">PRODUCT IMAGE</th>
+                                    <th className="px-4 py-3 border">DISCOUNT</th>
+                                    <th className="px-4 py-3 border">ADD DATE</th>
                                     <th className="px-4 py-3 border">ACTION</th>
 
                                 </tr>
                             </thead>
                             <tbody className="bg-white text-center">
-                                <MyOrdersRow />
+                                <ManageProductsRow />
                             </tbody>
                         </table>
                     </div>
@@ -32,4 +33,4 @@ const MyOrders = () => {
     );
 };
 
-export default MyOrders;
+export default ManageProducts;
