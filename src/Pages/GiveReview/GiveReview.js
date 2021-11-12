@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 import { useForm } from "react-hook-form";
 import useAuth from '../../Hooks/useAuth';
@@ -6,10 +7,15 @@ const GiveReview = () => {
     const { register, handleSubmit, reset } = useForm();
     const { user } = useAuth();
     const onSubmit = data => {
-        console.log(data)
-        reset();
+        data.img = user.photoURL;
+        axios.post('http://localhost:5000/reviews', data)
+            .then(res => {
+                if (res.data.insertedId) {
+                    alert('added');
+                    reset();
+                }
+            })
     };
-    const name = 'GANDU';
 
     return (
         <div className='container mx-auto'>

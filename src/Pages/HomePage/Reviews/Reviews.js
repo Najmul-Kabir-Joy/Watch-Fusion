@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import ReviewGenerator from '../ReviewGenerator/ReviewGenerator';
 
 const Reviews = () => {
+    const [items, setItems] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/reviews')
+            .then(res => res.json())
+            .then(data => setItems(data))
+    }, [])
     var settings = {
         dots: true,
         infinite: true,
@@ -47,18 +53,10 @@ const Reviews = () => {
                 <h1 className='text-5xl border-b-4 transition duration-1000 hover:border-indigo-400 inline'>TESTIMONIALS</h1>
             </div>
             <Slider {...settings}>
-                <div className='lg:px-10 px-0 shadow-2xl py-2'>
-                    <ReviewGenerator />
-                </div>
-                <div className='lg:px-10 px-0'>
-                    <ReviewGenerator />
-                </div>
-                <div className='lg:px-10 px-0'>
-                    <ReviewGenerator />
-                </div>
-                <div className='lg:px-10 px-0'>
-                    <ReviewGenerator />
-                </div>
+                {
+                    items.map(item => <ReviewGenerator key={item._id} item={item} />)
+                }
+
 
 
 

@@ -5,6 +5,7 @@ import useAuth from '../../../Hooks/useAuth';
 import AddNewProduct from '../../../Pages/AddNewProduct/AddNewProduct';
 import AllOrders from '../../../Pages/AllOrders/AllOrders';
 import BecomeMerchant from '../../../Pages/BecomeMerchant/BecomeMerchant';
+import AdminRoute from '../../../Pages/Dashboard/AdminRoute/AdminRoute';
 import Dashboard from '../../../Pages/Dashboard/Dashboard/Dashboard';
 import GiveReview from '../../../Pages/GiveReview/GiveReview';
 import MakeAdmin from '../../../Pages/MakeAdmin/MakeAdmin';
@@ -152,9 +153,9 @@ const DashboardSideBar = () => {
                     <Route path={`${path}/myorders`}>
                         <MyOrders />
                     </Route>
-                    <Route path={`${path}/allorders`}>
+                    <AdminRoute path={`${path}/allorders`}>
                         <AllOrders />
-                    </Route>
+                    </AdminRoute>
                     <Route path={`${path}/pay`}>
                         <Pay />
                     </Route>
@@ -164,15 +165,15 @@ const DashboardSideBar = () => {
                     <Route path={`${path}/becomeshopowner`}>
                         <BecomeMerchant />
                     </Route>
-                    <Route path={`${path}/addproducts`}>
+                    <AdminRoute path={`${path}/addproducts`}>
                         <AddNewProduct />
-                    </Route>
-                    <Route path={`${path}/manageproducts`}>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/manageproducts`}>
                         <ManageProducts />
-                    </Route>
-                    <Route path={`${path}/makeadmin`}>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/makeadmin`}>
                         <MakeAdmin />
-                    </Route>
+                    </AdminRoute>
 
                 </Switch>
             </div>
