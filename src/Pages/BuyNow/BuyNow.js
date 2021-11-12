@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import Footer from '../../Shared/Footer/Footer';
 import useAuth from '../../Hooks/useAuth';
 import { useParams } from 'react-router';
+import { toast, ToastContainer } from 'react-toastify';
+
 import axios from 'axios';
 
 const BuyNow = () => {
@@ -32,7 +34,16 @@ const BuyNow = () => {
         axios.post('http://localhost:5000/orders', data)
             .then(res => {
                 if (res.data.insertedId) {
-                    alert('added');
+                    toast('✅ ORDER PLACED', {
+                        position: "top-right",
+                        autoClose: 2000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: 'dark'
+                    });
                     reset();
                 }
             })
@@ -40,8 +51,17 @@ const BuyNow = () => {
     return (
         <>
             <TopNavigation />
-
-
+            <ToastContainer
+                position="top-right"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <div class="mt-20">
                 <h1 class="flex items-center justify-center font-bold text-indigo-600 text-md lg:text-3xl">
                     PURCHASE PAGE

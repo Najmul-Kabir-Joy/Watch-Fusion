@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { useForm } from "react-hook-form";
 import useAuth from '../../Hooks/useAuth';
+import { toast, ToastContainer } from 'react-toastify';
 
 const GiveReview = () => {
     const { register, handleSubmit, reset } = useForm();
@@ -11,7 +12,16 @@ const GiveReview = () => {
         axios.post('http://localhost:5000/reviews', data)
             .then(res => {
                 if (res.data.insertedId) {
-                    alert('added');
+                    toast.success('THANKS FOR YOUR FEEDBACK', {
+                        position: "top-right",
+                        autoClose: 2000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: 'dark'
+                    });
                     reset();
                 }
             })
@@ -19,6 +29,18 @@ const GiveReview = () => {
 
     return (
         <div className='container mx-auto'>
+            <ToastContainer
+                position="top-right"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
+
             <div>
                 <p className='text-3xl text-center pt-5'>WE APPRECIATE YOUR VALUABLE FEEDBACK</p>
             </div>

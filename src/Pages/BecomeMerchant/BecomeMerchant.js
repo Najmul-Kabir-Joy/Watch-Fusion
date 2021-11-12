@@ -1,11 +1,19 @@
+import axios from 'axios';
 import React from 'react';
 import { useForm } from "react-hook-form";
+import useAuth from '../../Hooks/useAuth';
 
 const BecomeMerchant = () => {
     const { register, handleSubmit, reset } = useForm();
+    const { user } = useAuth();
     const onSubmit = data => {
-        console.log(data)
-        reset();
+        axios.post('http://localhost:5000/merchant', data)
+            .then(res => {
+                if (res.data.insertedId) {
+                    alert('added');
+                    reset();
+                }
+            })
     };
     return (
         <div className='container mx-auto'>
@@ -21,13 +29,13 @@ const BecomeMerchant = () => {
                                 <div className="p-2 w-1/2">
                                     <div className="relative">
                                         <label for="name" className="leading-7 text-sm text-gray-600">Name</label>
-                                        <input type="text" id="name" name="name" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"  {...register("name", { required: true })} />
+                                        <input type="text" id="name" name="name" value={user.displayName} readOnly className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"  {...register("name", { required: true })} />
                                     </div>
                                 </div>
                                 <div className="p-2 w-1/2">
                                     <div className="relative">
-                                        <label for="phone" className="leading-7 text-sm text-gray-600">Phone</label>
-                                        <input type="tel" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"  {...register("phone", { required: true })} />
+                                        <label for="email" className="leading-7 text-sm text-gray-600">email</label>
+                                        <input type="email" value={user.email} readOnly className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"  {...register("email", { required: true })} />
                                     </div>
                                 </div>
                                 <div className="p-2 w-1/2">
@@ -38,8 +46,8 @@ const BecomeMerchant = () => {
                                 </div>
                                 <div className="p-2 w-1/2">
                                     <div className="relative">
-                                        <label for="nid" className="leading-7 text-sm text-gray-600">NID number</label>
-                                        <input type="number" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"  {...register("nid", { required: true })} />
+                                        <label for="simg" className="leading-7 text-sm text-gray-600">Shop banner</label>
+                                        <input type="text" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"  {...register("img", { required: true })} />
                                     </div>
                                 </div>
 

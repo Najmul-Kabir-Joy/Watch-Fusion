@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
-
+import logo from '../../../images/logo.png'
 const TopNavigation = () => {
     const { user, logOut } = useAuth();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,24 +16,7 @@ const TopNavigation = () => {
                         title="Company"
                         class="inline-flex items-center"
                     >
-                        <svg
-                            class="w-8 text-green-400"
-                            viewBox="0 0 24 24"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeMiterlimit="10"
-                            stroke="currentColor"
-                            fill="none"
-                        >
-                            <rect x="3" y="1" width="7" height="12" />
-                            <rect x="3" y="17" width="7" height="6" />
-                            <rect x="14" y="1" width="7" height="6" />
-                            <rect x="14" y="11" width="7" height="12" />
-                        </svg>
-                        <span class="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
-                            WATCH FUSION
-                        </span>
+                        <img className='w-20 tracking-wide' src={logo} alt="" />
                     </Link>
                     <ul class="flex items-center hidden space-x-8 lg:flex">
                         <li>
@@ -58,6 +41,9 @@ const TopNavigation = () => {
                                         >
                                             Dashboard
                                         </Link>
+                                    </li>
+                                    <li>
+                                        <span className='font-medium tracking-wide text-white transition duration-500 hover:opacity-60'>Welcome {user.displayName.split(' ')[1] ? user.displayName.split(' ')[1] : user.displayName.split(' ')[0]}</span>
                                     </li>
 
                                     <li>

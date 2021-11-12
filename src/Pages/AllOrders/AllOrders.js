@@ -1,6 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import AllOrdersRow from './AllOrdersRow/AllOrdersRow';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Spinner from '../../Shared/Spinner/Spinner';
 
 const AllOrders = () => {
     const [items, setItems] = useState([]);
@@ -16,6 +19,16 @@ const AllOrders = () => {
             axios.delete(url)
                 .then(res => {
                     if (res.data.deletedCount > 0) {
+                        toast('✅ DELETION SUCCESSFULL', {
+                            position: "top-right",
+                            autoClose: 1200,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: 'dark'
+                        });
                         const remains = items.filter(item => item._id !== id);
                         setItems(remains);
                     }
@@ -30,18 +43,39 @@ const AllOrders = () => {
         axios.put(url, data)
             .then(res => {
                 if (res.data.modifiedCount) {
-                    alert('done')
-                    window.location.reload();
+                    toast('✅ UPDATED SUCCESSFULLY', {
+                        position: "top-right",
+                        autoClose: 1200,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: 'dark'
+                    });
+                    window.setTimeout(function () { window.location.reload() }, 1250)
                 }
             });
     }
     return (
+
         <div className='min-w-full' >
+            <ToastContainer
+                position="top-right"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <h2 className='text-center text-3xl py-10'>ALL ORDERS</h2>
             <section className="p-0 lg:px-20">
                 <div className="w-full mb-8 overflow-hidden pb-64">
                     <div className="w-full overflow-x-auto">
-                        <table className="w-full table-auto">
+                        {items.length ? <table className="w-full table-auto">
                             <thead>
                                 <tr className="text-md font-semibold bg-indigo-300 text-center tracking-wide text-gray-900 uppercase border-b border-indigo-600">
                                     <th className="px-4 py-3 border">PLACED BY</th>
@@ -57,6 +91,7 @@ const AllOrders = () => {
 
                                 </tr>
                             </thead>
+
                             <tbody className="bg-white text-center">
                                 {
                                     items.map(item => <AllOrdersRow
@@ -68,7 +103,7 @@ const AllOrders = () => {
                                     />)
                                 }
                             </tbody>
-                        </table>
+                        </table> : <Spinner />}
                     </div>
                 </div>
             </section>

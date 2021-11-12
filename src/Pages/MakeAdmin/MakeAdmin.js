@@ -1,21 +1,60 @@
 import axios from 'axios';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import useAuth from '../../Hooks/useAuth';
+import { toast, ToastContainer } from 'react-toastify';
 
 const MakeAdmin = () => {
     const { register, handleSubmit, reset } = useForm();
+    const { token } = useAuth();
 
     const onSubmit = (data) => {
-        axios.put('http://localhost:5000/users/admin', data)
+        axios.put('http://localhost:5000/users/admin', data, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
             .then(res => {
                 if (res.data.modifiedCount) {
-                    alert('done')
-                    reset();
+                    toast('✅ ADDED', {
+                        position: "top-right",
+                        autoClose: 2000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: 'dark'
+                    });
+                } else {
+                    toast('FAILED', {
+                        position: "top-right",
+                        autoClose: 2000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: 'dark'
+                    });
                 }
+                reset();
+
             });
     };
     return (
         <div className='py-16'>
+            <ToastContainer
+                position="top-right"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <h2 className='text-3xl text-center uppercase mb-5'>make admin</h2>
             <div className="lg:w-1/2 md:w-2/3 mx-auto">
                 <form onSubmit={handleSubmit(onSubmit)}>

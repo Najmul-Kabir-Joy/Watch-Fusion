@@ -4,7 +4,8 @@ import useAuth from '../../../Hooks/useAuth';
 import Spinner from '../../../Shared/Spinner/Spinner';
 
 const AdminRoute = ({ children, ...rest }) => {
-    const { user, admin, isLoading } = useAuth();
+    const { user, isLoading } = useAuth();
+    const admin = window.localStorage.getItem('admin');
     if (isLoading) {
         return <Spinner />
     }

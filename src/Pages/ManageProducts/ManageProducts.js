@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import ManageProductsRow from './ManageProductsRow/ManageProductsRow';
+import { toast, ToastContainer } from 'react-toastify';
 
 const ManageProducts = () => {
     const [products, setProducts] = useState([]);
@@ -16,6 +17,16 @@ const ManageProducts = () => {
             axios.delete(url)
                 .then(res => {
                     if (res.data.deletedCount > 0) {
+                        toast('✅ DELETED', {
+                            position: "top-right",
+                            autoClose: 2000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: 'dark'
+                        });
                         const remains = products.filter(item => item._id !== id);
                         setProducts(remains);
                     }
@@ -24,6 +35,17 @@ const ManageProducts = () => {
     }
     return (
         <div className='min-w-full' >
+            <ToastContainer
+                position="top-right"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <h2 className='text-center text-3xl py-10'>MANAGE PRODUCTS</h2>
             <section className="p-0 lg:px-20">
                 <div className="w-full mb-8 overflow-hidden pb-64">

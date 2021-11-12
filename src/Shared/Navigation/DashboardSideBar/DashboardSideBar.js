@@ -10,6 +10,7 @@ import Dashboard from '../../../Pages/Dashboard/Dashboard/Dashboard';
 import GiveReview from '../../../Pages/GiveReview/GiveReview';
 import MakeAdmin from '../../../Pages/MakeAdmin/MakeAdmin';
 import ManageProducts from '../../../Pages/ManageProducts/ManageProducts';
+import Merchants from '../../../Pages/Merchants/Merchants';
 import MyOrders from '../../../Pages/MyOrders/MyOrders';
 import Pay from '../../../Pages/Pay/Pay';
 import UpdateProduct from '../../../Pages/UpdateProduct/UpdateProduct';
@@ -100,18 +101,18 @@ const DashboardSideBar = () => {
                         <Link to={`${url}/myorders`} class="flex items-center px-4 py-2 mt-5 text-white transition-colors duration-200 transform dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
                             <i class="fas fa-file text-lg"></i>
 
-                            <span class="mx-4 font-medium">MY ORDERS</span>
+                            <span class="mx-4 font-medium">TRACK ORDERS</span>
                         </Link>
                         <Link to={`${url}/userfeedbackform`} class="flex items-center px-4 py-2 mt-5 text-white transition-colors duration-200 transform dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
                             <i class="fas fa-signature text-lg"></i>
 
                             <span class="mx-4 font-medium">GIVE REVIEW</span>
                         </Link>
-                        <Link to={`${url}/becomeshopowner`} class="flex items-center px-4 py-2 mt-5 text-white transition-colors duration-200 transform dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
+                        {/* <Link to={`${url}/becomeshopowner`} class="flex items-center px-4 py-2 mt-5 text-white transition-colors duration-200 transform dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
                             <i class="fas fa-signature text-lg"></i>
 
                             <span class="mx-4 font-medium">Become Merchant</span>
-                        </Link>
+                        </Link> */}
                         {
                             admin &&
                             <>
@@ -131,6 +132,11 @@ const DashboardSideBar = () => {
                                     <span class="mx-4 font-medium">Manage Products</span>
                                 </Link>
                                 <Link to={`${url}/makeadmin`} class="flex items-center px-4 py-2 mt-5 text-white transition-colors duration-200 transform dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
+                                    <i class="fas fa-signature text-lg"></i>
+
+                                    <span class="mx-4 font-medium">Make Admin</span>
+                                </Link>
+                                <Link to={`${url}/merchants`} class="flex items-center px-4 py-2 mt-5 text-white transition-colors duration-200 transform dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
                                     <i class="fas fa-signature text-lg"></i>
 
                                     <span class="mx-4 font-medium">Make Admin</span>
@@ -162,9 +168,9 @@ const DashboardSideBar = () => {
                     <Route path={`${path}/userfeedbackform`}>
                         <GiveReview />
                     </Route>
-                    <Route path={`${path}/becomeshopowner`}>
+                    {/* <Route path={`${path}/becomeshopowner`}>
                         <BecomeMerchant />
-                    </Route>
+                    </Route> */}
                     <AdminRoute path={`${path}/addproducts`}>
                         <AddNewProduct />
                     </AdminRoute>
@@ -173,6 +179,9 @@ const DashboardSideBar = () => {
                     </AdminRoute>
                     <AdminRoute path={`${path}/makeadmin`}>
                         <MakeAdmin />
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/merchants`}>
+                        <Merchants />
                     </AdminRoute>
 
                 </Switch>

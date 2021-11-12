@@ -10,6 +10,7 @@ const useFirebase = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState('');
     const [admin, setAdmin] = useState(false);
+    const [token, setToken] = useState('');
     const successAlert = () => {
         Swal.fire({
             title: 'SUCCESSFULL',
@@ -112,19 +113,27 @@ const useFirebase = () => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user);
+                getIdToken(user)
+                    .then(idToken => {
+                        setToken(idToken);
+                    })
             } else {
                 setUser({});
             }
             setIsLoading(false);
         });
         return () => unsubscribe;
-    }, [])
+    }, [auth, admin])
 
     //ADMIN SETTER
     useEffect(() => {
         fetch(`http://localhost:5000/users/${user.email}`)
             .then(res => res.json())
-            .then(data => setAdmin(data.admin))
+            .then(data => {
+                setAdmin(data.admin)
+                window.localStorage.setItem('admin', data.admin);
+            })
+        // .finally(() => setIsLoading(false))
     }, [user.email])
 
 
@@ -144,7 +153,7 @@ const useFirebase = () => {
     const logOut = () => {
         setIsLoading(true)
         signOut(auth)
-            .then(() => { logOutAlert(); })
+            .then(() => { logOutAlert(); localStorage.removeItem('admin') })
             .catch((error) => { setError(error.message) })
             .finally(() => setIsLoading(false))
     }
@@ -153,6 +162,7 @@ const useFirebase = () => {
         user,
         error,
         admin,
+        token,
         isLoading,
         registerUser,
         signInWithGoogle,
