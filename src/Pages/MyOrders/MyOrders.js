@@ -8,12 +8,14 @@ const MyOrders = () => {
     const email = user.email;
     const [items, setItems] = useState([]);
     useEffect(() => {
-        const url = `http://localhost:5000/orders?email=${email}`;
+        const url = `http://localhost:5000/myorders?email=${email}`;
         console.log(url);
         fetch(url)
             .then(res => res.json())
             .then(data => setItems(data))
     }, [email])
+
+
     const handleDelete = (id) => {
         const approve = window.confirm('You really want to delete?')
         if (approve) {
@@ -55,7 +57,7 @@ const MyOrders = () => {
                                 </tbody>
                             </table>
                             :
-                            <Spinner />
+                            <p className='text-center text-red-400 text-xl'>YOU DON'T HAVE ANY ORDERS</p>
                         }
                     </div>
                 </div>

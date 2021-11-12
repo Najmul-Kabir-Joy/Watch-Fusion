@@ -7,17 +7,16 @@ import AllOrders from '../../../Pages/AllOrders/AllOrders';
 import BecomeMerchant from '../../../Pages/BecomeMerchant/BecomeMerchant';
 import Dashboard from '../../../Pages/Dashboard/Dashboard/Dashboard';
 import GiveReview from '../../../Pages/GiveReview/GiveReview';
+import MakeAdmin from '../../../Pages/MakeAdmin/MakeAdmin';
 import ManageProducts from '../../../Pages/ManageProducts/ManageProducts';
 import MyOrders from '../../../Pages/MyOrders/MyOrders';
 import Pay from '../../../Pages/Pay/Pay';
 import UpdateProduct from '../../../Pages/UpdateProduct/UpdateProduct';
 
 const DashboardSideBar = () => {
-    const { logOut } = useAuth();
+    const { logOut, admin, user } = useAuth();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     let { path, url } = useRouteMatch();
-
-
     return (
         <div className='flex'>
             {/* <div class="lg:hidden z-10">
@@ -85,9 +84,9 @@ const DashboardSideBar = () => {
                 <Link to='/' class="text-3xl block font-semibold text-center text-white dark:text-white">WATCH FUSION</Link>
 
                 <div class="flex flex-col items-center mt-6 -mx-2">
-                    <img class="object-cover w-24 h-24 mx-2 rounded-full" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="avatar" />
-                    <h4 class="mx-2 mt-2 font-medium text-white dark:text-gray-200 hover:underline">NAME</h4>
-                    <p class="mx-2 mt-1 text-sm font-medium text-gray-600 dark:text-gray-400 hover:underline">ROLE: USER</p>
+                    <img class="object-cover w-24 h-24 mx-2 rounded-full" src={user.photoURL ? user.photoURL : 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/User_font_awesome.svg/1200px-User_font_awesome.svg.png'} alt="avatar" />
+                    <h4 class="mx-2 mt-2 font-medium text-white dark:text-gray-200 hover:underline uppercase">{user.displayName}</h4>
+                    <p class="mx-2 mt-1 text-sm font-medium text-gray-600 dark:text-gray-400 hover:underline">ROLE: {admin ? 'admin' : 'user'}</p>
                 </div>
 
                 <div class="flex flex-col justify-between flex-1 mt-6">
@@ -102,10 +101,6 @@ const DashboardSideBar = () => {
 
                             <span class="mx-4 font-medium">MY ORDERS</span>
                         </Link>
-                        <Link to={`${url}/allorders`} class="flex items-center px-4 py-2 mt-5 text-white transition-colors duration-200 transform dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
-                            <i class="fas fa-file text-lg"></i>
-                            <span class="mx-4 font-medium">ALL ORDERS</span>
-                        </Link>
                         <Link to={`${url}/userfeedbackform`} class="flex items-center px-4 py-2 mt-5 text-white transition-colors duration-200 transform dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
                             <i class="fas fa-signature text-lg"></i>
 
@@ -116,16 +111,31 @@ const DashboardSideBar = () => {
 
                             <span class="mx-4 font-medium">Become Merchant</span>
                         </Link>
-                        <Link to={`${url}/addproducts`} class="flex items-center px-4 py-2 mt-5 text-white transition-colors duration-200 transform dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
-                            <i class="fas fa-signature text-lg"></i>
+                        {
+                            admin &&
+                            <>
+                                <Link to={`${url}/allorders`} class="flex items-center px-4 py-2 mt-5 text-white transition-colors duration-200 transform dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
+                                    <i class="fas fa-file text-lg"></i>
+                                    <span class="mx-4 font-medium">ALL ORDERS</span>
+                                </Link>
 
-                            <span class="mx-4 font-medium">Add Products</span>
-                        </Link>
-                        <Link to={`${url}/manageproducts`} class="flex items-center px-4 py-2 mt-5 text-white transition-colors duration-200 transform dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
-                            <i class="fas fa-signature text-lg"></i>
+                                <Link to={`${url}/addproducts`} class="flex items-center px-4 py-2 mt-5 text-white transition-colors duration-200 transform dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
+                                    <i class="fas fa-signature text-lg"></i>
 
-                            <span class="mx-4 font-medium">Manage Products</span>
-                        </Link>
+                                    <span class="mx-4 font-medium">Add Products</span>
+                                </Link>
+                                <Link to={`${url}/manageproducts`} class="flex items-center px-4 py-2 mt-5 text-white transition-colors duration-200 transform dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
+                                    <i class="fas fa-signature text-lg"></i>
+
+                                    <span class="mx-4 font-medium">Manage Products</span>
+                                </Link>
+                                <Link to={`${url}/makeadmin`} class="flex items-center px-4 py-2 mt-5 text-white transition-colors duration-200 transform dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
+                                    <i class="fas fa-signature text-lg"></i>
+
+                                    <span class="mx-4 font-medium">Make Admin</span>
+                                </Link>
+                            </>
+                        }
                         <p onClick={logOut} class="flex items-center px-4 py-2 mt-5 text-white cursor-pointer transition-colors duration-200 transform dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
                             <i class="fas fa-sign-out-alt text-lg"></i>
 
@@ -159,6 +169,9 @@ const DashboardSideBar = () => {
                     </Route>
                     <Route path={`${path}/manageproducts`}>
                         <ManageProducts />
+                    </Route>
+                    <Route path={`${path}/makeadmin`}>
+                        <MakeAdmin />
                     </Route>
 
                 </Switch>

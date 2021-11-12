@@ -9,6 +9,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState('');
+    const [admin, setAdmin] = useState(false);
     const successAlert = () => {
         Swal.fire({
             title: 'SUCCESSFULL',
@@ -49,8 +50,8 @@ const useFirebase = () => {
                 const newUser = { email, displayName: name };
                 setUser(newUser);
                 setUserName(name)
-                //SAVE USER IN MONGODB
-                // saveUser(email, name, 'POST')
+                // SAVE USER IN MONGODB
+                saveUser(email, name, 'POST')
                 history.replace('/');
                 if (userCredential.user.email) {
                     successAlert();
@@ -89,7 +90,7 @@ const useFirebase = () => {
         signInWithPopup(auth, googleProvider)
             .then((result) => {
                 const user = result.user;
-                // saveUser(user.email, user.displayName, 'PUT');
+                saveUser(user.email, user.displayName, 'PUT');
                 if (user.email) {
                     successAlert();
                 } else {
@@ -119,6 +120,13 @@ const useFirebase = () => {
         return () => unsubscribe;
     }, [])
 
+    //ADMIN SETTER
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
+
 
 
     const saveUser = (email, displayName, method) => {
@@ -144,6 +152,7 @@ const useFirebase = () => {
     return {
         user,
         error,
+        admin,
         isLoading,
         registerUser,
         signInWithGoogle,
