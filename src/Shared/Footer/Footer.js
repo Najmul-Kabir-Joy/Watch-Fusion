@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useAuth from '../../Hooks/useAuth';
+import logo from '../../images/logo.png'
 
 const Footer = () => {
+    const { user, logOut } = useAuth();
     return (
         <footer className="text-black body-font bg-indigo-400 mt-0">
             <div className="container px-5 py-24 mx-auto">
                 <div className="flex flex-wrap md:text-left text-center order-first">
-                    <div className="lg:w-1/4 md:w-1/2 w-full px-4 text-white">
-                        <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">WATCH FUSION</h2>
+                    <div className="lg:w-1/3 md:w-1/2 w-full px-4 text-white">
+                        <img className='w-20 tracking-wide block mx-auto pb-2 lg:inline' src={logo} alt="" />
                         <address>
                             Road#40, HOUSE-551
                             <br />
@@ -23,42 +26,33 @@ const Footer = () => {
 
                         </address>
                     </div>
-                    <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-                        <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
+                    <div className="lg:w-1/3 md:w-1/2 w-full px-4 mt-10">
+                        <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3 ">QUICK LINKS</h2>
                         <nav className="list-none mb-10">
                             <li>
-                                <Link className="text-white hover:text-gray-900">First Link</Link>
+                                <Link to='/explore' className="text-white hover:text-gray-900">OUR PRODUCTS</Link>
                             </li>
                             <li>
-                                <Link className="text-white hover:text-gray-900">Second Link</Link>
+                                <Link to='/myorders' className="text-white hover:text-gray-900">MY ORDERS</Link>
                             </li>
                             <li>
-                                <Link className="text-white hover:text-gray-900">Third Link</Link>
+                                <Link to='/userfeedbackform' className="text-white hover:text-gray-900">GIVE REVIEW</Link>
                             </li>
-                            <li>
-                                <Link className="text-white hover:text-gray-900">Fourth Link</Link>
-                            </li>
-                        </nav>
-                    </div>
-                    <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-                        <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
-                        <nav className="list-none mb-10">
-                            <li>
-                                <Link className="text-white hover:text-gray-900">First Link</Link>
-                            </li>
-                            <li>
-                                <Link className="text-white hover:text-gray-900">Second Link</Link>
-                            </li>
-                            <li>
-                                <Link className="text-white hover:text-gray-900">Third Link</Link>
-                            </li>
-                            <li>
-                                <Link className="text-white hover:text-gray-900">Fourth Link</Link>
-                            </li>
+                            {!user.email ?
+                                <li>
+                                    <Link to='/login' className="text-white hover:text-gray-900">LOGIN</Link>
+                                </li>
+                                :
+                                <li>
+                                    <span onClick={logOut} className="cursor-pointer text-white hover:text-gray-900">LOGOUT</span>
+                                </li>
+
+                            }
                         </nav>
                     </div>
 
-                    <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+
+                    <div className="lg:w-1/3 md:w-1/2 w-full px-4 mt-10">
                         <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">SUBSCRIBE</h2>
                         <div className="flex xl:flex-nowrap md:flex-nowrap lg:flex-wrap flex-wrap justify-center items-end md:justify-start">
                             <div className="relative w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">

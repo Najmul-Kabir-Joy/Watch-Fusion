@@ -24,7 +24,7 @@ const TopBanner = () => {
 
                         <div className="mt-8 sm:justify-center sm:flex">
                             <Link
-                                to=""
+                                to="/explore"
                                 className="block px-5 py-3 mt-3 font-medium border transition duration-500 border-indigo-600 rounded-lg sm:ml-3 sm:mt-0 hover:bg-indigo-500"
                             >
                                 EXPLORE OUR COLLECTIONS

@@ -19,8 +19,8 @@ const Home = () => {
                 <WhyUs />
                 <SecondBanner />
                 <Reviews />
-                <Footer />
             </div>
+            <Footer />
         </>
     );
 };

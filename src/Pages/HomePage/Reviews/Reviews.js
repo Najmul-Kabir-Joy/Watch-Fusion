@@ -10,7 +10,7 @@ const Reviews = () => {
             .then(data => setItems(data))
     }, [])
     var settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: 3,
@@ -26,7 +26,7 @@ const Reviews = () => {
                     slidesToShow: 3,
                     slidesToScroll: 3,
                     infinite: true,
-                    dots: true
+                    dots: false
                 }
             },
             {
@@ -48,9 +48,9 @@ const Reviews = () => {
     };
 
     return (
-        <div className='container mx-auto mb-8'>
+        <div className='container mx-auto mb-8 px-5'>
             <div className='my-5 pb-5 text-center'>
-                <h1 className='text-5xl border-b-4 transition duration-1000 hover:border-indigo-400 inline'>TESTIMONIALS</h1>
+                <h1 className='text-4xl border-b-4 transition duration-1000 hover:border-indigo-400 inline'>TESTIMONIALS</h1>
             </div>
             <Slider {...settings}>
                 {

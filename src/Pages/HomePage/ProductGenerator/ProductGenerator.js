@@ -2,33 +2,26 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ProductGenerator = ({ product }) => {
-    const { _id, productName, brandName, price, discount, img, shopName } = product
+    const { _id, productName, brandName, price, discount, img, description } = product
+
     return (
         <>
-
-            <section className='flex justify-center '>
-                <section class="lg:w-3/4 p-5 border-2 rounded-xl border-indigo-400 text-center transition transform duration-1000 group hover:-translate-y-2 hover:shadow-2xl hover:bg-indigo-400 cursor-pointer relative">
-                    <img class="w-full h-52 rounded-xl block mx-auto mt-10" src={img} alt="" />
-                    <h2 class="font-semibold pb-2 text-indigo-400 group-hover:text-white uppercase">{brandName}</h2>
-                    <h1 class="text-3xl mb-2 text-indigo-500 group-hover:text-white uppercase">{productName}</h1>
-                    <h2 class="font-semibold mb-0 text-indigo-600 text-4xl group-hover:text-white">${price} </h2>
-                    <small className='text-indigo-300'>SHOP:<i> {shopName}</i></small>
-                    <div className='block mx-auto py-5'>
-                        <Link
-                            to={`buynow/${_id}`}
-                            className="px-5 py-2 mt-3 text-gray-700 font-medium  transition duration-500 border-2 border-indigo-600 rounded hover:bg-white hover:text-indigo-500 hover:border-indigo-400"
-                        >
-                            BUY NOW
-                        </Link>
+            <div className="py-6">
+                <div className="flex max-w-md bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-1000 hover:shadow-2xl hover:-translate-y-4">
+                    <div className="w-1/3 bg-cover" style={{ backgroundImage: `url(${img})` }}>
                     </div>
-                    {
-                        discount > 0 ?
-                            <div class=" absolute rounded-full transition duration-1000 top-2 right-2 p-2 px-5 font-semibold bg-indigo-600 text-white uppercase group-hover:bg-white group-hover:text-indigo-500">{discount}% Off</div>
-                            :
-                            <></>
-                    }
-                </section>
-            </section>
+                    <div className="w-2/3 p-4 relative">
+                        <h1 className="text-indigo-600 font-bold text-2xl pt-8">{productName}</h1>
+                        <h1 className="text-indigo-500 text-sm">Brand: {brandName}</h1>
+                        <p className="mt-2 text-gray-600 text-sm h-16 overflow-hidden">{description}</p>
+                        <p className='absolute top-0 right-2 rounded-full bg-indigo-400 px-4 py-1 text-white'><span className='text-md'>{discount > 0 ? <> {discount} % Off</> : 'POPULAR'}</span></p>
+                        <div className="flex item-center justify-between mt-3">
+                            <h1 className="text-indigo-700 font-bold text-xl">${price}</h1>
+                            <Link to={`buynow/${_id}`} className="px-3 py-2 hover:bg-indigo-500 hover:text-white border-2 border-indigo-500 text-indigo-500 text-xs font-bold uppercase rounded">Add to Card</Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </>
     );

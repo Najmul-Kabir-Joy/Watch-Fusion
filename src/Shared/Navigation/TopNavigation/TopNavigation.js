@@ -72,78 +72,88 @@ const TopNavigation = () => {
                         }
                     </ul>
                     <div class="lg:hidden z-50">
-                        <button
+                        <span
                             aria-label="Open Menu"
                             title="Open Menu"
-                            class="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline"
-                            onClick={() => setIsMenuOpen(true)}
+                            class="p-1 -mr-1 transition duration-5000 rounded "
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
                         >
-                            <i class="fas fa-bars text-white text-2xl"></i>
-                        </button>
+                            {!isMenuOpen ? <i class="fas fa-bars text-black px-2 text-3xl"></i> : <i class="fas fa-times text-black px-2 text-3xl"></i>}
+                        </span>
                         {isMenuOpen && (
-                            <div class="absolute top-0 left-0 w-full border-2 border-indigo-500">
+                            <div class="absolute top-12 left-0 w-full border-2 border-indigo-500">
                                 <div class="p-5 bg-white border rounded shadow-sm">
                                     <div class="flex items-center justify-between mb-4">
                                         <div>
-                                            <a
-                                                href="/"
+                                            <Link
+                                                to="/"
                                                 aria-label="Company"
                                                 title="Company"
                                                 class="inline-flex items-center"
                                             >
-                                                <svg
-                                                    class="w-8 text-deep-purple-accent-400"
-                                                    viewBox="0 0 24 24"
-                                                    strokeLinejoin="round"
-                                                    strokeWidth="2"
-                                                    strokeLinecap="round"
-                                                    strokeMiterlimit="10"
-                                                    stroke="currentColor"
-                                                    fill="none"
-                                                >
-                                                    <rect x="3" y="1" width="7" height="12" />
-                                                    <rect x="3" y="17" width="7" height="6" />
-                                                    <rect x="14" y="1" width="7" height="6" />
-                                                    <rect x="14" y="11" width="7" height="12" />
-                                                </svg>
-                                                <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                                                    WATCH FUSION
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div>
-                                            <button
-                                                aria-label="Close Menu"
-                                                title="Close Menu"
-                                                class="p-2 -mt-2 -mr-2 transition duration-200 border-1 border-black rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                                                onClick={() => setIsMenuOpen(false)}
-                                            >
-                                                <i class="fas fa-times text-black px-2 text-3xl"></i>
-                                            </button>
+                                                <img className='w-20 tracking-wide' src={logo} alt="" />
+
+                                            </Link>
                                         </div>
                                     </div>
                                     <nav>
                                         <ul class="space-y-4">
                                             <li>
-                                                <a
-                                                    href="/"
+                                                <Link
+                                                    to="/explore"
                                                     aria-label="Our product"
                                                     title="Our product"
                                                     class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-indigo-400"
                                                 >
-                                                    Product
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <Link
-                                                    to="/login"
-                                                    class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-indigo-400 hover:bg-indigo-700 focus:shadow-outline focus:outline-none"
-                                                    aria-label="log in"
-                                                    title="Login"
-                                                >
-                                                    Login
+                                                    Explore
                                                 </Link>
                                             </li>
+                                            {!user.email ?
+                                                <li>
+                                                    <Link
+                                                        to="/login"
+                                                        class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-indigo-400 hover:bg-indigo-700 focus:shadow-outline focus:outline-none"
+                                                        aria-label="log in"
+                                                        title="Login"
+                                                    >
+                                                        Login
+                                                    </Link>
+                                                </li> :
+                                                <>
+                                                    <li>
+                                                        <Link
+                                                            to="/dashboard"
+                                                            aria-label="dashboard"
+                                                            title="user dashboard"
+                                                            class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-indigo-400"
+                                                        >
+                                                            Dashboard
+                                                        </Link>
+                                                    </li>
+                                                    <li>
+                                                        <Link
+                                                            to="/explore"
+                                                            aria-label="explore"
+                                                            title="explore product"
+                                                            class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-indigo-400"
+                                                        >
+                                                            Welcome {user.displayName.split(' ')[1] ? user.displayName.split(' ')[1] : user.displayName.split(' ')[0]}
+                                                        </Link>
+                                                    </li>
+                                                    <li>
+                                                        <p
+                                                            to="/login"
+                                                            class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-indigo-400 hover:bg-indigo-700 focus:shadow-outline focus:outline-none"
+                                                            aria-label="log out"
+                                                            onClick={logOut}
+                                                            title="logout"
+                                                        >
+                                                            Logout
+                                                        </p>
+                                                    </li>
+                                                </>
+
+                                            }
                                         </ul>
                                     </nav>
                                 </div>

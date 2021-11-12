@@ -12,7 +12,7 @@ const Featured = () => {
                     </div>
                     <div className='block mx-auto pb-5'>
                         <Link
-                            to=""
+                            to="/explore"
                             className="px-5 py-2 mt-3 text-gray-700 font-medium  transition duration-500 border-2 border-green-600 rounded hover:bg-green-400 hover:text-white hover:border-green-400"
                         >
                             CHECK OUT
@@ -30,7 +30,7 @@ const Featured = () => {
                     </div>
                     <div className='block mx-auto pb-5'>
                         <Link
-                            to=""
+                            to="/explore"
                             className="px-5 py-2 mt-3 text-gray-700 font-medium  transition duration-500 border-2 border-pink-600 rounded hover:bg-pink-400 hover:text-white hover:border-pink-400"
                         >
                             CHECK OUT
@@ -48,14 +48,14 @@ const Featured = () => {
                     </div>
                     <div className='block mx-auto pb-5'>
                         <Link
-                            to=""
+                            to="/explore"
                             className="px-5 py-2 mt-3 text-gray-700 font-medium  transition duration-500 border-2 border-blue-600 rounded hover:bg-blue-400 hover:text-white hover:border-blue-400"
                         >
                             CHECK OUT
                         </Link>
                     </div>
                     <div className="block mx-auto w-3/4 pt-6">
-                        <img src="https://freepngimg.com/thumb/watch/22306-4-branded-watch-transparent.png" alt="" />
+                        <img className='pb-10' src="https://freepngimg.com/thumb/watch/22306-4-branded-watch-transparent.png" alt="" />
                     </div>
                 </div>
 
