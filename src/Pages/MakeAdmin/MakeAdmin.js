@@ -9,7 +9,7 @@ const MakeAdmin = () => {
     const { token } = useAuth();
 
     const onSubmit = (data) => {
-        axios.put('http://localhost:5000/users/admin', data, {
+        axios.put('https://protected-mesa-80070.herokuapp.com/users/admin', data, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }

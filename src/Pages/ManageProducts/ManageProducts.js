@@ -6,14 +6,14 @@ import { toast, ToastContainer } from 'react-toastify';
 const ManageProducts = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://protected-mesa-80070.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
     const handleDelete = (id) => {
         const approve = window.confirm('You really want to delete?')
         if (approve) {
-            const url = `http://localhost:5000/products/${id}`;
+            const url = `https://protected-mesa-80070.herokuapp.com/products/${id}`;
             axios.delete(url)
                 .then(res => {
                     if (res.data.deletedCount > 0) {

@@ -7,7 +7,7 @@ const BecomeMerchant = () => {
     const { register, handleSubmit, reset } = useForm();
     const { user } = useAuth();
     const onSubmit = data => {
-        axios.post('http://localhost:5000/merchant', data)
+        axios.post('https://protected-mesa-80070.herokuapp.com/merchant', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('added');

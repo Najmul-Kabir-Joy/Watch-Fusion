@@ -9,7 +9,7 @@ const MyOrders = () => {
     const email = user.email;
     const [items, setItems] = useState([]);
     useEffect(() => {
-        const url = `http://localhost:5000/myorders?email=${email}`;
+        const url = `https://protected-mesa-80070.herokuapp.com/myorders?email=${email}`;
         fetch(url, {
             headers: {
                 'authorization': `Bearer ${token}`
@@ -23,7 +23,7 @@ const MyOrders = () => {
     const handleDelete = (id) => {
         const approve = window.confirm('You really want to delete?')
         if (approve) {
-            const url = `http://localhost:5000/orders/${id}`;
+            const url = `https://protected-mesa-80070.herokuapp.com/orders/${id}`;
             axios.delete(url)
                 .then(res => {
                     toast('✅ ORDER DELETED SUCCESSFULLY', {

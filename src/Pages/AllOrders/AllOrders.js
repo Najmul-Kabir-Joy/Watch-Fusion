@@ -8,14 +8,14 @@ import Spinner from '../../Shared/Spinner/Spinner';
 const AllOrders = () => {
     const [items, setItems] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://protected-mesa-80070.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => setItems(data))
     }, [])
     const handleDelete = (id) => {
         const approve = window.confirm('You really want to delete?')
         if (approve) {
-            const url = `http://localhost:5000/orders/${id}`;
+            const url = `https://protected-mesa-80070.herokuapp.com/orders/${id}`;
             axios.delete(url)
                 .then(res => {
                     if (res.data.deletedCount > 0) {
@@ -36,7 +36,7 @@ const AllOrders = () => {
         }
     }
     const handleUpdate = (id, status, shipment) => {
-        const url = `http://localhost:5000/orders/${id}`
+        const url = `https://protected-mesa-80070.herokuapp.com/orders/${id}`
         let data = {};
         data.status = status;
         data.shipment = shipment;

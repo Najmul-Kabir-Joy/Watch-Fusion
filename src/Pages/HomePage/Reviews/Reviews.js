@@ -5,7 +5,7 @@ import ReviewGenerator from '../ReviewGenerator/ReviewGenerator';
 const Reviews = () => {
     const [items, setItems] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://protected-mesa-80070.herokuapp.com/reviews')
             .then(res => res.json())
             .then(data => setItems(data))
     }, [])

@@ -6,7 +6,7 @@ import { toast, ToastContainer } from 'react-toastify';
 const AddNewProduct = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        axios.post('http://localhost:5000/products', data)
+        axios.post('https://protected-mesa-80070.herokuapp.com/products', data)
             .then(res => {
                 if (res.data.insertedId) {
                     toast('✅ ADDED', {

@@ -16,7 +16,7 @@ const BuyNow = () => {
 
     const [product, setProduct] = useState({});
     useEffect(() => {
-        const url = `http://localhost:5000/products/${id}`
+        const url = `https://protected-mesa-80070.herokuapp.com/products/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -31,7 +31,7 @@ const BuyNow = () => {
         data.product = product;
         data.status = 'pending';
         data.shipment = 'order not confirmed yet';
-        axios.post('http://localhost:5000/orders', data)
+        axios.post('https://protected-mesa-80070.herokuapp.com/orders', data)
             .then(res => {
                 if (res.data.insertedId) {
                     toast('✅ ORDER PLACED', {

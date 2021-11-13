@@ -9,7 +9,7 @@ const GiveReview = () => {
     const { user } = useAuth();
     const onSubmit = data => {
         data.img = user.photoURL;
-        axios.post('http://localhost:5000/reviews', data)
+        axios.post('https://protected-mesa-80070.herokuapp.com/reviews', data)
             .then(res => {
                 if (res.data.insertedId) {
                     toast.success('THANKS FOR YOUR FEEDBACK', {

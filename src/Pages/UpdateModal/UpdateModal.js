@@ -7,7 +7,7 @@ const UpdateModal = ({ openBooking, handleBookingClose, id }) => {
     const { reset } = useForm();
     const [product, setProduct] = useState({});
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${id}`)
+        fetch(`https://protected-mesa-80070.herokuapp.com/products/${id}`)
             .then(res => res.json())
             .then(data => {
                 setProduct(data)
@@ -44,7 +44,7 @@ const UpdateModal = ({ openBooking, handleBookingClose, id }) => {
         setProduct(updatedProduct);
     };
     const handleUpdate = e => {
-        const url = `http://localhost:5000/products/${id}`
+        const url = `https://protected-mesa-80070.herokuapp.com/products/${id}`
         axios.put(url, product)
             .then(res => {
                 if (res.data.modifiedCount) {

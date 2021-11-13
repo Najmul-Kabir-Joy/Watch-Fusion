@@ -10,7 +10,6 @@ import GiveReview from '../../../Pages/GiveReview/GiveReview';
 import MakeAdmin from '../../../Pages/MakeAdmin/MakeAdmin';
 import ManageProducts from '../../../Pages/ManageProducts/ManageProducts';
 import ManageReviews from '../../../Pages/ManageReviews/ManageReviews';
-import Merchants from '../../../Pages/Merchants/Merchants';
 import MyOrders from '../../../Pages/MyOrders/MyOrders';
 import Pay from '../../../Pages/Pay/Pay';
 

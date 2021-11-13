@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
@@ -8,7 +7,7 @@ const UpdateProduct = () => {
     const { reset } = useForm();
     const [product, setProduct] = useState({});
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${id}`)
+        fetch(`https://protected-mesa-80070.herokuapp.com/products/${id}`)
             .then(res => res.json())
             .then(data => {
                 setProduct(data)
