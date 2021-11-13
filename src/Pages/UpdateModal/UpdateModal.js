@@ -40,7 +40,7 @@ const UpdateModal = ({ openBooking, handleBookingClose, id }) => {
     };
     const shopName = e => {
         const updatedProduct = { ...product };
-        updatedProduct.shopName = e.target.value;
+        updatedProduct.description = e.target.value;
         setProduct(updatedProduct);
     };
     const handleUpdate = e => {
@@ -118,9 +118,9 @@ const UpdateModal = ({ openBooking, handleBookingClose, id }) => {
                                             </div>
                                             <div className="p-2 w-1/2">
                                                 <div className="relative">
-                                                    <label for="sname" className="leading-7 text-sm text-gray-600">Shop Name</label>
+                                                    <label for="description" className="leading-7 text-sm text-gray-600">Description</label>
                                                     <input type="text" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                                                        onChange={shopName} value={product.shopName || ''}
+                                                        onChange={shopName} value={product.description || ''}
                                                     />
                                                 </div>
                                             </div>
