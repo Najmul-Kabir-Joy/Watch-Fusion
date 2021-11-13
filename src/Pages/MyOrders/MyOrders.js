@@ -10,7 +10,6 @@ const MyOrders = () => {
     const [items, setItems] = useState([]);
     useEffect(() => {
         const url = `http://localhost:5000/myorders?email=${email}`;
-        console.log(url);
         fetch(url, {
             headers: {
                 'authorization': `Bearer ${token}`
@@ -46,7 +45,7 @@ const MyOrders = () => {
     }
 
     return (
-        <div className='min-w-full' >
+        <div className='min-w-full pt-16 px-2' >
             <ToastContainer
                 position="top-right"
                 autoClose={2000}
@@ -66,6 +65,7 @@ const MyOrders = () => {
                             <table className="w-full table-auto">
                                 <thead>
                                     <tr className="text-md font-semibold bg-indigo-300 text-center tracking-wide text-gray-900 uppercase border-b border-indigo-600">
+                                        <th className="px-4 py-3 border">#</th>
                                         <th className="px-4 py-3 border">DATE</th>
                                         <th className="px-4 py-3 border">PRODUCT</th>
                                         <th className="px-4 py-3 border">BILL</th>
@@ -78,7 +78,7 @@ const MyOrders = () => {
                                 </thead>
                                 <tbody className="bg-white text-center">
                                     {
-                                        items.map(item => <MyOrdersRow key={item._id} item={item} handleDelete={handleDelete} />)
+                                        items.map((item, index) => <MyOrdersRow key={item._id} index={index + 1} item={item} handleDelete={handleDelete} />)
                                     }
                                 </tbody>
                             </table>

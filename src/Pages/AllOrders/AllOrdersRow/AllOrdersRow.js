@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const AllOrdersRow = ({ item, handleDelete, handleUpdate }) => {
+const AllOrdersRow = ({ item, handleDelete, handleUpdate, index }) => {
     const { _id, name, email, phone, address, price, time, product, status, shipment } = item;
     const { productName, shopName } = product
     return (
@@ -8,6 +8,8 @@ const AllOrdersRow = ({ item, handleDelete, handleUpdate }) => {
             {
                 status === 'rejected' ?
                     <tr className="text-black  border-b border-indigo-600  bg-red-500" >
+                        <td className="border-l border-r  font-semibold border-indigo-600 uppercase">{index}</td>
+
                         <td className="border-l border-r  text-left pl-2 font-semibold border-indigo-600 uppercase">
                             <p>{name}</p>
                             <p>{email}</p>
@@ -29,10 +31,12 @@ const AllOrdersRow = ({ item, handleDelete, handleUpdate }) => {
                     </tr >
                     :
                     <tr className="text-black  border-b border-indigo-600" >
+                        <td className="border-l border-r  font-semibold border-indigo-600 uppercase">{index}</td>
+
                         <td className="border-l border-r  text-left pl-2 font-semibold border-indigo-600 uppercase">
                             <p>{name}</p>
-                            <p>{email}</p>
-                            <p>{phone}</p>
+                            <p><i className="fas fa-envelope"></i>{email}</p>
+                            <p><i className="fas fa-phone-alt"></i> {phone}</p>
                         </td>
                         <td className="border-l border-r  font-semibold border-indigo-600 uppercase">{time}</td>
                         <td className="border-l border-r  font-semibold border-indigo-600 uppercase">{address}</td>

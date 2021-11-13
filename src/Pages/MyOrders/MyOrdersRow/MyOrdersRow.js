@@ -1,9 +1,10 @@
 import React from 'react';
 
-const MyOrdersRow = ({ item, handleDelete }) => {
+const MyOrdersRow = ({ item, handleDelete, index }) => {
     const { _id, time, product, price, status, shipment } = item;
     return (
         <tr className="text-black  border-b border-indigo-600">
+            <td className="border-l border-r  font-semibold border-indigo-600">{index}</td>
             <td className="border-l border-r  font-semibold border-indigo-600">{time}</td>
             <td className="border-l border-r  font-semibold border-indigo-600">{product.productName}</td>
             <td className="border-l border-r  font-semibold border-indigo-600">{price}</td>

@@ -58,7 +58,7 @@ const MakeAdmin = () => {
             <h2 className='text-3xl text-center uppercase mb-5'>make admin</h2>
             <div className="lg:w-1/2 md:w-2/3 mx-auto">
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className="flex flex-wrap -m-2">
+                    <div className="flex flex-wrap">
                         <div className="p-2 w-full">
                             <div className="relative">
                                 <label for="email" className="leading-7 text-sm text-gray-600">Email</label>

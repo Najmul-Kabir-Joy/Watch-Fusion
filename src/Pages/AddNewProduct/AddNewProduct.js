@@ -25,7 +25,7 @@ const AddNewProduct = () => {
             })
     };
     return (
-        <div className='container mx-auto'>
+        <div className='container mx-auto pt-16'>
             <ToastContainer
                 position="top-right"
                 autoClose={2000}

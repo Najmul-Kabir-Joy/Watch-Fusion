@@ -18,7 +18,7 @@ const ReviewGenerator = ({ item }) => {
                         />
                     </p>
                     <p className="text-lg leading-5 text-gray-900 h-20 text-justify overflow-hidden">
-                        {message}
+                        {message.slice(0, 100)}
                     </p>
                 </div>
                 <div className="w-full h-1 ml-auto duration-300 origin-left transform scale-x-0 bg-deep-purple-accent-400 group-hover:scale-x-100" />

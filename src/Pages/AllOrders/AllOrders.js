@@ -59,7 +59,7 @@ const AllOrders = () => {
     }
     return (
 
-        <div className='min-w-full' >
+        <div className='min-w-full pt-8 px-2' >
             <ToastContainer
                 position="top-right"
                 autoClose={2000}
@@ -73,11 +73,12 @@ const AllOrders = () => {
             />
             <h2 className='text-center text-3xl py-10'>ALL ORDERS</h2>
             <section className="p-0 lg:px-20">
-                <div className="w-full mb-8 overflow-hidden pb-64">
+                <div className="w-full mb-8 overflow-hidden">
                     <div className="w-full overflow-x-auto">
                         {items.length ? <table className="w-full table-auto">
                             <thead>
                                 <tr className="text-md font-semibold bg-indigo-300 text-center tracking-wide text-gray-900 uppercase border-b border-indigo-600">
+                                    <th className="px-4 py-3 border">#</th>
                                     <th className="px-4 py-3 border">PLACED BY</th>
                                     <th className="px-4 py-3 border">PLACED ON</th>
                                     <th className="px-4 py-3 border">ADDRESS</th>
@@ -94,8 +95,9 @@ const AllOrders = () => {
 
                             <tbody className="bg-white text-center">
                                 {
-                                    items.map(item => <AllOrdersRow
+                                    items.map((item, index) => <AllOrdersRow
                                         key={item._id}
+                                        index={index}
                                         item={item}
                                         handleDelete={handleDelete}
                                         handleUpdate={handleUpdate}

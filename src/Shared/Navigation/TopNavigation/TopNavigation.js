@@ -7,24 +7,24 @@ const TopNavigation = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <div class="bg-indigo-400">
-            <div class="px-4 py-3 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-                <div class="relative flex items-center justify-between">
+        <div className="bg-indigo-400">
+            <div className="px-4 py-3 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+                <div className="relative flex items-center justify-between">
                     <Link
                         to="/"
                         aria-label="Company"
                         title="Company"
-                        class="inline-flex items-center"
+                        className="inline-flex items-center"
                     >
                         <img className='w-20 tracking-wide' src={logo} alt="" />
                     </Link>
-                    <ul class="flex items-center hidden space-x-8 lg:flex">
+                    <ul className="flex items-center hidden space-x-8 lg:flex">
                         <li>
                             <Link
                                 to="/explore"
                                 aria-label="explore"
                                 title="explore"
-                                class="font-medium tracking-wide text-white transition duration-500 hover:opacity-60"
+                                className="font-medium tracking-wide text-white transition duration-500 hover:opacity-60"
                             >
                                 Explore
                             </Link>
@@ -37,7 +37,7 @@ const TopNavigation = () => {
                                             to="/dashboard"
                                             aria-label="Our product"
                                             title="Our product"
-                                            class="font-medium tracking-wide text-white transition duration-500 hover:opacity-60"
+                                            className="font-medium tracking-wide text-white transition duration-500 hover:opacity-60"
                                         >
                                             Dashboard
                                         </Link>
@@ -49,7 +49,7 @@ const TopNavigation = () => {
                                     <li>
                                         <button
                                             onClick={logOut}
-                                            class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-500 rounded-full shadow-inner bg-indigo-500 hover:bg-indigo-700"
+                                            className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-500 rounded-full shadow-inner bg-indigo-500 hover:bg-indigo-700"
                                             aria-label="Log out"
                                             title="Logout"
                                         >
@@ -62,7 +62,7 @@ const TopNavigation = () => {
                                 <li>
                                     <Link
                                         to="/login"
-                                        class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-500 rounded-full shadow-inner bg-indigo-500 hover:bg-indigo-700"
+                                        className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-500 rounded-full shadow-inner bg-indigo-500 hover:bg-indigo-700"
                                         aria-label="Log in"
                                         title="Login"
                                     >
@@ -71,25 +71,25 @@ const TopNavigation = () => {
                                 </li>
                         }
                     </ul>
-                    <div class="lg:hidden z-50">
+                    <div className="lg:hidden z-50">
                         <span
                             aria-label="Open Menu"
                             title="Open Menu"
-                            class="p-1 -mr-1 transition duration-5000 rounded "
+                            className="p-1 -mr-1 transition duration-5000 rounded "
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
                         >
-                            {!isMenuOpen ? <i class="fas fa-bars text-black px-2 text-3xl"></i> : <i class="fas fa-times text-black px-2 text-3xl"></i>}
+                            {!isMenuOpen ? <i className="fas fa-bars text-black px-2 text-3xl"></i> : <i className="fas fa-times text-black px-2 text-3xl"></i>}
                         </span>
                         {isMenuOpen && (
-                            <div class="absolute top-12 left-0 w-full border-2 border-indigo-500">
-                                <div class="p-5 bg-white border rounded shadow-sm">
-                                    <div class="flex items-center justify-between mb-4">
+                            <div className="absolute top-12 left-0 w-full border-2 border-indigo-500">
+                                <div className="p-5 bg-white border rounded shadow-sm">
+                                    <div className="flex items-center justify-between mb-4">
                                         <div>
                                             <Link
                                                 to="/"
                                                 aria-label="Company"
                                                 title="Company"
-                                                class="inline-flex items-center"
+                                                className="inline-flex items-center"
                                             >
                                                 <img className='w-20 tracking-wide' src={logo} alt="" />
 
@@ -97,13 +97,13 @@ const TopNavigation = () => {
                                         </div>
                                     </div>
                                     <nav>
-                                        <ul class="space-y-4">
+                                        <ul className="space-y-4">
                                             <li>
                                                 <Link
                                                     to="/explore"
                                                     aria-label="Our product"
                                                     title="Our product"
-                                                    class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-indigo-400"
+                                                    className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-indigo-400"
                                                 >
                                                     Explore
                                                 </Link>
@@ -112,7 +112,7 @@ const TopNavigation = () => {
                                                 <li>
                                                     <Link
                                                         to="/login"
-                                                        class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-indigo-400 hover:bg-indigo-700 focus:shadow-outline focus:outline-none"
+                                                        className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-indigo-400 hover:bg-indigo-700 focus:shadow-outline focus:outline-none"
                                                         aria-label="log in"
                                                         title="Login"
                                                     >
@@ -125,7 +125,7 @@ const TopNavigation = () => {
                                                             to="/dashboard"
                                                             aria-label="dashboard"
                                                             title="user dashboard"
-                                                            class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-indigo-400"
+                                                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-indigo-400"
                                                         >
                                                             Dashboard
                                                         </Link>
@@ -135,7 +135,7 @@ const TopNavigation = () => {
                                                             to="/explore"
                                                             aria-label="explore"
                                                             title="explore product"
-                                                            class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-indigo-400"
+                                                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-indigo-400"
                                                         >
                                                             Welcome {user.displayName.split(' ')[1] ? user.displayName.split(' ')[1] : user.displayName.split(' ')[0]}
                                                         </Link>
@@ -143,7 +143,7 @@ const TopNavigation = () => {
                                                     <li>
                                                         <p
                                                             to="/login"
-                                                            class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-indigo-400 hover:bg-indigo-700 focus:shadow-outline focus:outline-none"
+                                                            className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-indigo-400 hover:bg-indigo-700 focus:shadow-outline focus:outline-none"
                                                             aria-label="log out"
                                                             onClick={logOut}
                                                             title="logout"
