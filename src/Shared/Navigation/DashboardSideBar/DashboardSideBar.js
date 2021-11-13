@@ -84,8 +84,7 @@ const DashboardSideBar = () => {
                                             <span className="mx-4 font-medium">Manage Products</span>
                                         </Link>
                                         <Link to={`${url}/managereviews`} className="flex items-center px-4 py-2 mt-5 text-white transition-colors duration-200 transform dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
-                                            <i className="fas fa-warehouse text-lg"></i>
-
+                                            <i className="fas fa-hand-holding-heart text-lg"></i>
                                             <span className="mx-4 font-medium">Reviews</span>
                                         </Link>
                                         <Link to={`${url}/makeadmin`} className="flex items-center px-4 py-2 mt-5 text-white transition-colors duration-200 transform dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
@@ -154,7 +153,7 @@ const DashboardSideBar = () => {
                                     <span className="mx-4 font-medium">Manage Products</span>
                                 </Link>
                                 <Link to={`${url}/managereviews`} className="flex items-center px-4 py-2 mt-5 text-white transition-colors duration-200 transform dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
-                                    <i className="fas fa-warehouse text-lg"></i>
+                                    <i className="fas fa-hand-holding-heart text-lg"></i>
 
                                     <span className="mx-4 font-medium">Reviews</span>
                                 </Link>
