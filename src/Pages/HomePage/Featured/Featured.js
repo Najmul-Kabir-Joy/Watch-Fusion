@@ -5,7 +5,7 @@ const Featured = () => {
     return (
         <section className=' mx-auto py-14'>
             <div className='grid grid-cols lg:grid-cols-3 lg:gap-20 md:gap-10 gap-5'>
-                <div className=' bg-green-300 text-center group hover:bg-transparent border-2  hover:border-green-400 transition duration-1000'>
+                <div data-aos="fade-right" data-aos-duration="2000" className=' bg-green-300 text-center group hover:bg-transparent border-2  hover:border-green-400 transition duration-1000'>
                     <div className='p-10 text-gray-700 group-hover:text-green-400 transition duration-1000'>
                         <p className='text-5xl'>ROYAL AURORA</p>
                         <p className='text-xl pt-5'>THE SUPREME COLLECTION</p>
@@ -23,7 +23,7 @@ const Featured = () => {
                     </div>
                 </div>
                 {/* SECOND ONE */}
-                <div className=' bg-pink-300 text-center group hover:bg-transparent border-2  hover:border-pink-400 transition duration-1000'>
+                <div data-aos="fade-up" data-aos-duration="2000" className=' bg-pink-300 text-center group hover:bg-transparent border-2  hover:border-pink-400 transition duration-1000'>
                     <div className='p-10 text-gray-700 group-hover:text-pink-400 transition duration-1000'>
                         <p className='text-5xl'>FIONA SHINE</p>
                         <p className='text-xl pt-5'>SPECIALLY FOR WOMANS</p>
@@ -41,7 +41,7 @@ const Featured = () => {
                     </div>
                 </div>
                 {/* THIRD ONE */}
-                <div className=' bg-blue-300 text-center group hover:bg-transparent border-2  hover:border-blue-400 transition duration-1000'>
+                <div data-aos="fade-left" data-aos-duration="2000" className=' bg-blue-300 text-center group hover:bg-transparent border-2  hover:border-blue-400 transition duration-1000'>
                     <div className='p-10 text-gray-700 group-hover:text-blue-400 transition duration-1000'>
                         <p className='text-5xl'>LASTIC BLIST</p>
                         <p className='text-xl pt-5'>THE RISING STARS</p>

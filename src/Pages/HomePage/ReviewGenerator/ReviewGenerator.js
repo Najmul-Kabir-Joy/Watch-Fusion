@@ -4,7 +4,7 @@ import Rating from 'react-rating';
 const ReviewGenerator = ({ item }) => {
     const { name, rating, message, img } = item;
     return (
-        <div className='lg:px-10 px-0 shadow-2xl py-2'>
+        <div className='lg:px-10 px-0 shadow-2xl py-2' data-aos="fade-up" data-aos-duration="1500">
             <div className="flex flex-col p-5 justify-between overflow-hidden text-left border-l-4 border-r-4 border-indigo-400 transition-shadow duration-200 bg-white rounded shadow-xl group hover:shadow-2xl">
                 <div className="">
                     <img className="block mx-auto object-cover w-16 h-16 rounded-full" src={img ? img : 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/User_font_awesome.svg/1200px-User_font_awesome.svg.png'} alt="avatar" />

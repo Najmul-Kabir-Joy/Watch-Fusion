@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 const TopBanner = () => {
 
     return (
-        <div className='lg:flex'>
+        <div className='lg:flex' data-aos="flip-down" data-aos-duration="2000">
             <section className="relative text-white bg-center bg-no-repeat bg-cover lg:w-2/3" role="banner" style={{ backgroundImage: "url(https://images.unsplash.com/photo-1607039551379-1a633b87cdc5?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d2F0Y2glMjBoYW5kfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80)" }}>
                 <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
-                <div className="relative px-4 py-24 mx-auto max-w-screen-xl sm:px-6 lg:px-8 sm:py-36  lg:flex lg:items-center">
+                <div className="relative px-4 py-24 mx-auto max-w-screen-xl sm:px-6 lg:px-8 sm:py-36  lg:flex lg:items-center" data-aos="zoom-out" data-aos-duration="3000">
 
                     <div className="max-w-3xl mx-auto text-center">
 
@@ -33,16 +33,16 @@ const TopBanner = () => {
                     </div>
                 </div>
             </section>
-            <section className='flex flex-col-reverse lg:flex-col lg:ml-10  lg:w-1/2'>
+            <section className='flex flex-col-reverse lg:flex-col lg:ml-10  lg:w-1/2 ' >
                 <section className="lg:mt-0 mt-10 text-white bg-center bg-no-repeat bg-cover min-w-full lg:h-2/3" role="banner" style={{ backgroundImage: "url(https://cdn.creationwatches.com/products/includes/templates/creation/assets/img/mens-watches.webp)" }}>
-                    <div className='min-h-full py-16 flex flex-col justify-center items-center space-y-3'>
+                    <div className='min-h-full py-16 flex flex-col justify-center items-center space-y-3' data-aos="zoom-in" data-aos-duration="3000">
                         <p className='text-xl'>PRODUCT OF THE DAY</p>
                         <p className='text-3xl lg:text-5xl transition duration-500 text-indigo-500 hover:text-white'>FOSSIL ROYAL MENZ</p>
                         <p>FULLY WATER RESISTANT</p>
                         <p>CLASSY LOOKING</p>
                     </div>
                 </section>
-                <section className='lg:mt-0 mt-10 border-2 border-indigo-700 bg-white text-white  transition duration-1000 min-w-full lg:h-1/3 group hover:bg-indigo-500' >
+                <section data-aos="flip-right" data-aos-duration="1500" data-aos-delay="1000" className='lg:mt-0 mt-10 border-2 border-indigo-700 bg-white text-white  transition duration-1000 min-w-full lg:h-1/3 group hover:bg-indigo-500' >
                     <div className='min-h-full text-indigo-400 flex flex-col justify-center transition duration-1000 items-center space-y-3 group-hover:text-white'>
                         <p className='lg:text-2xl text-xl'>31<sup>th</sup> DECEMBER</p>
                         <p className='lg:text-2xl text-2xl'>YEAR ENDING MEGA SALE</p>
