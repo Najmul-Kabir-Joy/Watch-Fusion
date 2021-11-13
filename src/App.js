@@ -9,6 +9,7 @@ import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import BuyNow from './Pages/BuyNow/BuyNow';
 import UpdateProduct from './Pages/UpdateProduct/UpdateProduct';
 import Explore from './Pages/Explore/Explore';
+import NotFound from './Pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -37,6 +38,9 @@ function App() {
             <PrivateRoute path='/buynow/:id'>
               <BuyNow />
             </PrivateRoute>
+            <Route path='*'>
+              <NotFound></NotFound>
+            </Route>
           </Switch>
         </BrowserRouter>
       </AuthProvider>

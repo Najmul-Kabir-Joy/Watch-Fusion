@@ -8,7 +8,7 @@ const ReviewGenerator = ({ item }) => {
             <div className="flex flex-col p-5 justify-between overflow-hidden text-left border-l-4 border-r-4 border-indigo-400 transition-shadow duration-200 bg-white rounded shadow-xl group hover:shadow-2xl">
                 <div className="">
                     <img className="block mx-auto object-cover w-16 h-16 rounded-full" src={img ? img : 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/User_font_awesome.svg/1200px-User_font_awesome.svg.png'} alt="avatar" />
-                    <p className="mb-2 font-bold text-center text-3xl">{name}</p>
+                    <p className="mb-2 font-bold text-center text-3xl">{name.split(' ')[1] ? name.split(' ')[1] : name.split(' ')[0]}</p>
                     <p className='text-center text-lg pb-2 text-yellow-500'>
                         <Rating
                             initialRating={rating}
