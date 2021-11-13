@@ -38,22 +38,25 @@ const UpdateModal = ({ openBooking, handleBookingClose, id }) => {
         updatedProduct.img = e.target.value;
         setProduct(updatedProduct);
     };
-    const shopName = e => {
+    const description = e => {
         const updatedProduct = { ...product };
         updatedProduct.description = e.target.value;
         setProduct(updatedProduct);
     };
     const handleUpdate = e => {
         const url = `https://protected-mesa-80070.herokuapp.com/products/${id}`
+        console.log(product);
         axios.put(url, product)
             .then(res => {
                 if (res.data.modifiedCount) {
                     alert('done')
                     reset();
                     handleBookingClose();
+                    window.location.reload();
+
                 }
             });
-        // e.preventDefault();
+        e.preventDefault();
     }
 
     return (
@@ -120,7 +123,7 @@ const UpdateModal = ({ openBooking, handleBookingClose, id }) => {
                                                 <div className="relative">
                                                     <label for="description" className="leading-7 text-sm text-gray-600">Description</label>
                                                     <input type="text" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                                                        onChange={shopName} value={product.description || ''}
+                                                        onChange={description} value={product.description || ''}
                                                     />
                                                 </div>
                                             </div>
