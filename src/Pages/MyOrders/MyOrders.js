@@ -69,7 +69,6 @@ const MyOrders = () => {
                                         <th className="px-4 py-3 border">DATE</th>
                                         <th className="px-4 py-3 border">PRODUCT</th>
                                         <th className="px-4 py-3 border">BILL</th>
-                                        <th className="px-4 py-3 border">SHOP NAME</th>
                                         <th className="px-4 py-3 border">ORDER STATUS</th>
                                         <th className="px-4 py-3 border">SHIPPING STATUS</th>
                                         <th className="px-4 py-3 border">ACTION</th>

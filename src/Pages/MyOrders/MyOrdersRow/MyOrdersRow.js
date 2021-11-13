@@ -8,7 +8,6 @@ const MyOrdersRow = ({ item, handleDelete, index }) => {
             <td className="border-l border-r  font-semibold border-indigo-600">{time}</td>
             <td className="border-l border-r  font-semibold border-indigo-600">{product.productName}</td>
             <td className="border-l border-r  font-semibold border-indigo-600">{price}</td>
-            <td className="border-l border-r  font-semibold border-indigo-600">{product.shopName}</td>
             <td className="border-l border-r  font-semibold border-indigo-600 text-indigo-500 uppercase">{status}</td>
             <td className="border-l border-r  font-semibold border-indigo-600 text-indigo-500 uppercase">{shipment}</td>
             {

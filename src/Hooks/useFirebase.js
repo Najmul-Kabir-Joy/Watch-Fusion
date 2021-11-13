@@ -53,7 +53,7 @@ const useFirebase = () => {
                 setUserName(name)
                 // SAVE USER IN MONGODB
                 saveUser(email, name, 'POST')
-                history.replace('/');
+                history.push('/');
                 if (userCredential.user.email) {
                     successAlert();
                 } else {

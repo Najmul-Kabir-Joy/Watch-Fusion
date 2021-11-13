@@ -2,7 +2,7 @@ import React from 'react';
 
 const AllOrdersRow = ({ item, handleDelete, handleUpdate, index }) => {
     const { _id, name, email, phone, address, price, time, product, status, shipment } = item;
-    const { productName, shopName } = product
+    const { productName } = product
     return (
         <>
             {
@@ -18,7 +18,6 @@ const AllOrdersRow = ({ item, handleDelete, handleUpdate, index }) => {
                         <td className="border-l border-r  font-semibold border-indigo-600 uppercase">{time}</td>
                         <td className="border-l border-r  font-semibold border-indigo-600 uppercase">{address}</td>
                         <td className="border-l border-r  font-semibold border-indigo-600 uppercase">{productName}</td>
-                        <td className="border-l border-r  font-semibold border-indigo-600 uppercase">{shopName}</td>
                         <td className="border-l border-r  font-semibold border-indigo-600 uppercase">{price}</td>
                         <td className="border-l border-r  font-semibold border-indigo-600 uppercase">{status}</td>
                         <td className="border-l border-r  font-semibold border-indigo-600 uppercase">{shipment}</td>
@@ -41,7 +40,6 @@ const AllOrdersRow = ({ item, handleDelete, handleUpdate, index }) => {
                         <td className="border-l border-r  font-semibold border-indigo-600 uppercase">{time}</td>
                         <td className="border-l border-r  font-semibold border-indigo-600 uppercase">{address}</td>
                         <td className="border-l border-r  font-semibold border-indigo-600 uppercase">{productName}</td>
-                        <td className="border-l border-r  font-semibold border-indigo-600 uppercase">{shopName}</td>
                         <td className="border-l border-r  font-semibold border-indigo-600 uppercase">{price}</td>
                         <td className="border-l border-r  font-semibold border-indigo-600 uppercase text-indigo-500">{status}</td>
                         <td className="border-l border-r  font-semibold border-indigo-600 uppercase text-indigo-500">{shipment}</td>

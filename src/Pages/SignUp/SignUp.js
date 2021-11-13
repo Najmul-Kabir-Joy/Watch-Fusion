@@ -16,6 +16,7 @@ const SignUp = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         registerUser(data.email, data.password, data.name, history)
+        history.push('/');
         reset();
     };
     return (

@@ -43,7 +43,7 @@ const TopNavigation = () => {
                                         </Link>
                                     </li>
                                     <li>
-                                        <span className='font-medium tracking-wide text-white transition duration-500 hover:opacity-60'>Welcome {user.displayName.split(' ')[1] ? user.displayName.split(' ')[1] : user.displayName.split(' ')[0]}</span>
+                                        <span className='font-medium tracking-wide text-white transition duration-500 hover:opacity-60'>Welcome {user?.displayName?.split(' ')[1] ? user?.displayName?.split(' ')[1] : user?.displayName?.split(' ')[0]}</span>
                                     </li>
 
                                     <li>

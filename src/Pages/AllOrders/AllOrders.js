@@ -4,14 +4,20 @@ import AllOrdersRow from './AllOrdersRow/AllOrdersRow';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Spinner from '../../Shared/Spinner/Spinner';
+import useAuth from '../../Hooks/useAuth';
 
 const AllOrders = () => {
     const [items, setItems] = useState([]);
+    const { token } = useAuth();
     useEffect(() => {
-        fetch('https://protected-mesa-80070.herokuapp.com/orders')
+        fetch('https://protected-mesa-80070.herokuapp.com/orders', {
+            headers: {
+                'authorization': `Bearer ${token}`
+            }
+        })
             .then(res => res.json())
             .then(data => setItems(data))
-    }, [])
+    }, [token])
     const handleDelete = (id) => {
         const approve = window.confirm('You really want to delete?')
         if (approve) {
@@ -83,7 +89,6 @@ const AllOrders = () => {
                                     <th className="px-4 py-3 border">PLACED ON</th>
                                     <th className="px-4 py-3 border">ADDRESS</th>
                                     <th className="px-4 py-3 border">PRODUCT NAME</th>
-                                    <th className="px-4 py-3 border">PRODUCT SHOP</th>
                                     <th className="px-4 py-3 border">PRICE</th>
                                     <th className="px-4 py-3 border">STATUS</th>
                                     <th className="px-4 py-3 border">SHIPMENT</th>
